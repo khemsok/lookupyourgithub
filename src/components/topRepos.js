@@ -14,7 +14,7 @@ import StarIcon from "@material-ui/icons/Star";
 import RestaurantIcon from "@material-ui/icons/Restaurant";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 
-export default function TopRepos({ userData, user }) {
+export default function TopRepos({ user }) {
   const [userRepos, setUserRepos] = useState([]);
 
   useEffect(() => {
@@ -26,7 +26,12 @@ export default function TopRepos({ userData, user }) {
       `https://api.github.com/users/${user}/repos`
     );
     let data = await userDataResponse.json();
+    console.log(data);
+    if (data["message"]) {
+      // set error state
+    }
     data.sort((a, b) => b["stargazers_count"] - a["stargazers_count"]);
+
     setUserRepos(data);
   };
   console.log(userRepos);
@@ -45,7 +50,11 @@ export default function TopRepos({ userData, user }) {
         <Grid item xs={12} md={3}>
           <Paper style={{ height: "175px", padding: "20px" }}>
             <div style={{ height: "80%" }}>
-              <Typography variant="subtitle1" style={{ marginBottom: "10px" }}>
+              <Typography
+                color="primary"
+                variant="subtitle1"
+                style={{ marginBottom: "10px" }}
+              >
                 <span>
                   <BookmarksIcon
                     style={{
