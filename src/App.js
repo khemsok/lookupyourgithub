@@ -19,35 +19,47 @@ import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 function App() {
-  const lightTheme = createMuiTheme(lightMode);
-  const darkTheme = createMuiTheme(darkMode);
+    const lightTheme = createMuiTheme(lightMode);
+    const darkTheme = createMuiTheme(darkMode);
 
-  const currentTheme = localStorage.getItem("themeType") || "light";
-  const [theme, setTheme] = useState(currentTheme);
+    const currentTheme = localStorage.getItem("themeType") || "light";
+    const [theme, setTheme] = useState(currentTheme);
 
-  useEffect(() => {
-    localStorage.setItem("themeType", theme);
-  }, [theme]);
+    useEffect(() => {
+        localStorage.setItem("themeType", theme);
+    }, [theme]);
 
-  const handleThemeChange = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
+    const handleThemeChange = () => {
+        setTheme(theme === "light" ? "dark" : "light");
+    };
 
-  return (
-    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-      <CssBaseline />
-      <Router>
-        <Container maxWidth="lg">
-          <Nav handleThemeChange={handleThemeChange} theme={theme} />
-          <Switch>
-            <Route exact path="/" component={Homepage} />
-            <Route path="/user/:id" component={User} />
-            <Route component={CatchAll} />
-          </Switch>
-        </Container>
-      </Router>
-    </ThemeProvider>
-  );
+    return (
+        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+            <CssBaseline />
+            <Router>
+                <Container maxWidth="lg">
+                    <div
+                        style={{
+                            position: "relative",
+                            minHeight: "100vh",
+                            paddingBottom: "121px",
+                        }}
+                    >
+                        <Nav
+                            handleThemeChange={handleThemeChange}
+                            theme={theme}
+                        />
+                        <Switch>
+                            <Route exact path="/" component={Homepage} />
+                            <Route path="/user/:id" component={User} />
+                            <Route component={CatchAll} />
+                        </Switch>
+                        <Footer />
+                    </div>
+                </Container>
+            </Router>
+        </ThemeProvider>
+    );
 }
 
 export default App;
