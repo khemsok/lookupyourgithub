@@ -26,10 +26,6 @@ export default function TopRepos({ user }) {
       `https://api.github.com/users/${user}/repos`
     );
     let data = await userDataResponse.json();
-    console.log(data);
-    if (data["message"]) {
-      // set error state
-    }
     data.sort((a, b) => b["stargazers_count"] - a["stargazers_count"]);
 
     setUserRepos(data);
@@ -60,7 +56,7 @@ export default function TopRepos({ user }) {
                     style={{
                       fontSize: "1em",
                       verticalAlign: "middle",
-                      marginRight: "5px"
+                      marginRight: "5px",
                     }}
                   />
                 </span>
@@ -76,7 +72,7 @@ export default function TopRepos({ user }) {
                     color: selectLanguageColor(element.language),
                     verticalAlign: "sub",
                     marginRight: "5px",
-                    fontSize: "1.25em"
+                    fontSize: "1.25em",
                   }}
                 />
               </span>
@@ -93,7 +89,7 @@ export default function TopRepos({ user }) {
                     verticalAlign: "sub",
                     fontSize: "1.25em",
                     marginLeft: "15px",
-                    marginRight: "5px"
+                    marginRight: "5px",
                   }}
                 />
               </span>
@@ -106,7 +102,7 @@ export default function TopRepos({ user }) {
                     verticalAlign: "sub",
                     fontSize: "1.25em",
                     marginLeft: "10px",
-                    marginRight: "5px"
+                    marginRight: "5px",
                   }}
                 />
               </span>

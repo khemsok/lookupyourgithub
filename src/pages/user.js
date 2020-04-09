@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import UserInfo from "../components/userInfo";
 import UserStats from "../components/userStats";
 import TopRepos from "../components/topRepos";
+import Footer from "../components/footer";
 
 // MUI
 import Avatar from "@material-ui/core/Avatar";
@@ -14,6 +15,7 @@ import Grid from "@material-ui/core/Grid";
 
 export default function User({ match, history }) {
   const [userData, setUserData] = useState({});
+  const [fetchStatus, setFetchStatus] = useState(true); // True = Okay False = Not Okay
 
   useEffect(() => {
     fetchUserData();
@@ -24,6 +26,10 @@ export default function User({ match, history }) {
       `https://api.github.com/users/${match.params.id}`
     );
     const data = await userDataResponse.json();
+    if (data["message"]) {
+      setFetchStatus(false);
+    }
+
     setUserData(data);
     console.log(data);
   };
@@ -34,22 +40,13 @@ export default function User({ match, history }) {
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center"
+          alignItems: "center",
         }}
       >
         <CircularProgress />
       </div>
     ) : (
       <div>
-        {/* <Avatar
-                    alt="Remy Sharp"
-                    src={userData.avatar_url}
-                    style={{
-                        width: "150px",
-                        height: "150px",
-                        margin: "0 auto",
-                    }}
-                /> */}
         <img
           src={userData.avatar_url}
           style={{
@@ -58,7 +55,7 @@ export default function User({ match, history }) {
             borderRadius: "100px",
             boxShadow: "0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)",
             display: "block",
-            margin: "0 auto"
+            margin: "0 auto",
           }}
         />
         <Typography
@@ -74,7 +71,7 @@ export default function User({ match, history }) {
             marginTop: "20px",
             display: "flex",
             justifyContent: "center",
-            flexWrap: "wrap"
+            flexWrap: "wrap",
           }}
         >
           <UserInfo userData={userData} />
@@ -86,7 +83,13 @@ export default function User({ match, history }) {
 
   return (
     <>
-      <div>{displayUserInfo}</div>
+      {fetchStatus ? (
+        displayUserInfo
+      ) : (
+        <Typography variant="subtitle1" align="center">
+          Not Available 💔
+        </Typography>
+      )}
     </>
   );
 }
