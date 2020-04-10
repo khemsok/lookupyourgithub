@@ -97,9 +97,11 @@ export default function TopRepos(props) {
                       }}
                     />
                   </span>
-                  {element.name}
+                  {checkTitleLength(element.name)}
                 </Typography>
-                <Typography variant="body1">{element.description}</Typography>
+                <Typography variant="body1">
+                  {checkDescriptionLength(element.description)}
+                </Typography>
               </div>
 
               <Typography display="inline">

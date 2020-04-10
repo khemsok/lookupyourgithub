@@ -21,7 +21,9 @@ export const checkTitleLength = (title) => {
 };
 
 export const checkDescriptionLength = (description) => {
-  if (description.length >= 103) {
+  if (description === null || description === undefined) {
+    return description;
+  } else if (description.length >= 103) {
     return description.substring(0, 103) + "...";
   } else {
     return description;
