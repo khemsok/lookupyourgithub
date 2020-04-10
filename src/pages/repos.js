@@ -64,7 +64,7 @@ export default function Followers(props) {
     <Typography variant="subtitle1" align="center">
       User Not Found <span role="img">💔</span>
     </Typography>
-  ) : userData === 0 ? (
+  ) : userData.length === 0 ? (
     <>
       <Typography variant="subtitle1">Repositories 📚</Typography>
       <Typography variant="subtitle2">You have no repo 😢</Typography>
