@@ -40,13 +40,13 @@ function App() {
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <CssBaseline />
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Container maxWidth="lg">
           <div
             style={{
               position: "relative",
               minHeight: "100vh",
-              paddingBottom: "130px"
+              paddingBottom: "130px",
             }}
           >
             <Nav handleThemeChange={handleThemeChange} theme={theme} />
