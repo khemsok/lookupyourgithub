@@ -27,12 +27,22 @@ const useStyles = makeStyles({
     transition: "transform .25s ease-in",
 
     "&:hover": {
+<<<<<<< HEAD
       transform: "translate(0px, -5px)",
     },
   },
 });
 
 export default function TopRepos({ user }) {
+=======
+      transform: "translate(0px, -5px)"
+    }
+  }
+});
+
+export default function TopRepos(props) {
+  const { user } = props;
+>>>>>>> af6309b246fd7e0ce501e382f6e523e6d3001d40
   const [userRepos, setUserRepos] = useState([]);
 
   const classes = useStyles();
@@ -64,11 +74,16 @@ export default function TopRepos({ user }) {
       </div>
     ) : userRepos.length === 1000000 ? (
       <Grid item xs={12}>
+<<<<<<< HEAD
         <Typography>Not available</Typography>
+=======
+        <Typography variant="subtitle2">Not available 💔</Typography>
+>>>>>>> af6309b246fd7e0ce501e382f6e523e6d3001d40
       </Grid>
     ) : (
       topUserReposData.map((element, index) => (
         <Grid item xs={12} md={3}>
+<<<<<<< HEAD
           <Paper
             style={{ height: "175px", padding: "20px" }}
             className={classes.paperStyled}
@@ -86,12 +101,32 @@ export default function TopRepos({ user }) {
                     textDecoration: "none",
                     color: "inherit",
                   }}
+=======
+          <a
+            href={element["html_url"]}
+            target="_blank"
+            style={{
+              textDecoration: "none",
+              color: "inherit"
+            }}
+          >
+            <Paper
+              style={{ height: "175px", padding: "20px" }}
+              className={classes.paperStyled}
+            >
+              <div style={{ height: "80%" }}>
+                <Typography
+                  color="primary"
+                  variant="subtitle1"
+                  style={{ marginBottom: "10px" }}
+>>>>>>> af6309b246fd7e0ce501e382f6e523e6d3001d40
                 >
                   <span>
                     <BookmarksIcon
                       style={{
                         fontSize: "1em",
                         verticalAlign: "middle",
+<<<<<<< HEAD
                         marginRight: "5px",
                       }}
                     />
@@ -153,6 +188,66 @@ export default function TopRepos({ user }) {
               {element.forks_count}
             </Typography>
           </Paper>
+=======
+                        marginRight: "5px"
+                      }}
+                    />
+                  </span>
+                  {element.name}
+                </Typography>
+                <Typography variant="body1">{element.description}</Typography>
+              </div>
+
+              <Typography display="inline">
+                <span>
+                  <FiberManualRecordIcon
+                    style={{
+                      color: selectLanguageColor(element.language),
+                      verticalAlign: "sub",
+                      marginRight: "5px",
+                      fontSize: "1.25em"
+                    }}
+                  />
+                </span>
+                {element.language}
+              </Typography>
+
+              <Typography display="inline" style={{ float: "right" }}>
+                {numberWithCommas(element.size)} KB
+              </Typography>
+              <Typography display="inline">
+                <span>
+                  <Tooltip title="Stars" placement="top">
+                    <StarIcon
+                      style={{
+                        verticalAlign: "sub",
+                        fontSize: "1.25em",
+                        marginLeft: "15px",
+                        marginRight: "5px"
+                      }}
+                    />
+                  </Tooltip>
+                </span>
+                {element.stargazers_count}
+              </Typography>
+              <Typography display="inline">
+                <span>
+                  <Tooltip title="Git Fork (git it 😂)" placement="top">
+                    <RestaurantIcon
+                      style={{
+                        verticalAlign: "sub",
+                        fontSize: "1.25em",
+                        marginLeft: "10px",
+                        marginRight: "5px"
+                      }}
+                    />
+                  </Tooltip>
+                </span>
+                {element.forks_count}
+              </Typography>
+            </Paper>
+          </a>
+>>>>>>> af6309b246fd7e0ce501e382f6e523e6d3001d40
         </Grid>
       ))
     );

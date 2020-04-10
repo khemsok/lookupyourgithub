@@ -28,7 +28,6 @@ export default function User({ match }) {
     }
 
     setUserData(data);
-    console.log(data);
   };
 
   const displayUserInfo =
@@ -37,7 +36,7 @@ export default function User({ match }) {
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
+          alignItems: "center"
         }}
       >
         <CircularProgress />
@@ -53,10 +52,9 @@ export default function User({ match }) {
             borderRadius: "100px",
             boxShadow: "0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)",
             display: "block",
-            margin: "0 auto",
+            margin: "0 auto"
           }}
         />
-
         <Typography
           style={{ marginTop: "20px" }}
           variant="subtitle1"
@@ -77,7 +75,11 @@ export default function User({ match }) {
             marginTop: "20px",
             display: "flex",
             justifyContent: "center",
+<<<<<<< HEAD
             flexWrap: "wrap",
+=======
+            flexWrap: "wrap"
+>>>>>>> af6309b246fd7e0ce501e382f6e523e6d3001d40
           }}
         >
           <UserInfo userData={userData} />
@@ -93,7 +95,11 @@ export default function User({ match }) {
         displayUserInfo
       ) : (
         <Typography variant="subtitle1" align="center">
+<<<<<<< HEAD
           Not Available <span role="img">💔</span>
+=======
+          User Not Found <span role="img">💔</span>
+>>>>>>> af6309b246fd7e0ce501e382f6e523e6d3001d40
         </Typography>
       )}
     </>
