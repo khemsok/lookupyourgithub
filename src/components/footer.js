@@ -3,7 +3,6 @@ import React from "react";
 // MUI
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
-import Fab from "@material-ui/core/Fab";
 
 // MUI Icons
 import GitHubIcon from "@material-ui/icons/GitHub";

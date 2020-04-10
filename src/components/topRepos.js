@@ -10,7 +10,6 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import Tooltip from "@material-ui/core/Tooltip";
-import withStyles from "@material-ui/core/styles/withStyles";
 
 // MUI Icon
 import BookmarksIcon from "@material-ui/icons/Bookmarks";
@@ -28,11 +27,8 @@ const useStyles = makeStyles({
   }
 });
 
-const styles = theme => console.log(theme);
-
-function TopRepos(props) {
+export default function TopRepos(props) {
   const { user } = props;
-  console.log(props);
   const [userRepos, setUserRepos] = useState([]);
 
   const classes = useStyles();
@@ -165,5 +161,3 @@ function TopRepos(props) {
     </div>
   );
 }
-
-export default withStyles(styles)(TopRepos);
