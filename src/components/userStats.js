@@ -15,8 +15,8 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
     height: "75px",
-    flexDirection: "column"
-  }
+    flexDirection: "column",
+  },
 });
 
 export default function UserStats({ userData }) {
@@ -28,7 +28,7 @@ export default function UserStats({ userData }) {
           <Link
             to={{
               pathname: `/user/${userData.login}/repos`,
-              userData: userData
+              userData: userData,
             }}
             style={{ textDecoration: "none" }}
           >
@@ -44,7 +44,7 @@ export default function UserStats({ userData }) {
           <Link
             to={{
               pathname: `/user/${userData.login}/followers`,
-              userData: userData
+              userData: userData,
             }}
             style={{ textDecoration: "none" }}
           >
@@ -60,7 +60,7 @@ export default function UserStats({ userData }) {
           <Link
             to={{
               pathname: `/user/${userData.login}/following`,
-              userData: userData
+              userData: userData,
             }}
             style={{ textDecoration: "none" }}
           >
