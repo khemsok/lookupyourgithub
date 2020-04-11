@@ -8,7 +8,7 @@
 - **🔎 Search User**: Search a GitHub user
 - **🔢 User Information**: Display user information (e.g. date joined)
 - **📃 Repos/Followers/Following**:  Different pages to show user stats
-- **📚 Top Repositories**: Show user top repositories
+- **📚 Top Repositories**: Show user's top repositories
 - **🌓 Light/Dark Mode**: Display different color modes
 
 ### Technologies 🔨
