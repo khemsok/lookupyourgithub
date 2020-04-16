@@ -1,6 +1,6 @@
 <div align="center">
   <h1>LookUpYourGithub 👀</h1>
-  <a href="https://lookupyourgithub.now.sh/" target="_blank"><img src="https://i.imgur.com/YiEGPsB.png" widt></a>
+  <a href="https://lookupyourgithub.xyz/" target="_blank"><img src="https://i.imgur.com/YiEGPsB.png" widt></a>
   <sub>A Fancy GitHub Profile Viewer ✨</sub>
 </div>
 
