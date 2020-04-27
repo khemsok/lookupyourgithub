@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import { useHistory } from "react-router-dom";
 
@@ -8,13 +8,20 @@ import Container from "@material-ui/core/Container";
 
 export default function Header() {
   const [user, setUser] = useState("");
+
+  const inputRef = useRef();
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   let history = useHistory();
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     history.push(`/user/${user}`);
   };
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setUser(e.target.value);
   };
 
@@ -36,17 +43,18 @@ export default function Header() {
             style={{
               display: "flex",
               justifyContent: "center",
-              marginTop: "50px"
+              marginTop: "50px",
             }}
           >
             <TextField
+              inputRef={inputRef}
               id="standard-full-width"
               style={{ margin: 8 }}
               placeholder="Enter username"
               fullWidth
               margin="normal"
               InputLabelProps={{
-                shrink: true
+                shrink: true,
               }}
               onChange={handleChange}
               required={true}
