@@ -49,7 +49,7 @@ export default function Header() {
             <TextField
               inputRef={inputRef}
               id="standard-full-width"
-              style={{ margin: 8 }}
+              style={{ margin: 8, fontSize: "16px" }}
               placeholder="Enter username"
               fullWidth
               margin="normal"
