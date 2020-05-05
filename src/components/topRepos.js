@@ -22,6 +22,9 @@ import StarIcon from "@material-ui/icons/Star";
 import RestaurantIcon from "@material-ui/icons/Restaurant";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 
+// Icon
+import gitfork from "../repo-forked.svg";
+
 const useStyles = makeStyles({
   paperStyled: {
     transition: "transform .25s ease-in",
@@ -138,8 +141,9 @@ export default function TopRepos(props) {
               </Typography>
               <Typography display="inline">
                 <span>
-                  <Tooltip title="Git Fork (git it 😂)" placement="top">
-                    <RestaurantIcon
+                  <Tooltip title="Forks" placement="top">
+                    <img
+                      src={gitfork}
                       style={{
                         verticalAlign: "sub",
                         fontSize: "1.25em",
